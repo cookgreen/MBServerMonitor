@@ -43,6 +43,7 @@ namespace MBServerMonitor
                 serverInfo.HasPassword = reader["HasPassword"].ToString();
                 serverInfos.Add(serverInfo);
             }
+            reader.Close();
 
             return serverInfos;
         }

@@ -11,39 +11,35 @@ namespace MBServerMonitor
     public class SqliteHelper
     {
         private string db;
-        private SQLiteConnection connection;
 
         public SqliteHelper(string db)
         {
             this.db = db;
         }
 
-        private void createConnection()
+        private SQLiteConnection createConnection()
         {
-            connection = new SQLiteConnection("Data Source=" + db + "");
+            var connection = new SQLiteConnection("Data Source=" + db + "");
             connection.Open();
-        }
-        private void closeCurrentConnection()
-        {
-            connection.Close();
+            return connection;
         }
 
         public void ExecuteSql(string sql)
         {
-            createConnection();
-            SQLiteCommand command = new SQLiteCommand(connection);
+            var conn = createConnection();
+            SQLiteCommand command = new SQLiteCommand(conn);
             command.CommandText = sql;
             command.ExecuteNonQuery();
-            closeCurrentConnection();
+            conn.Close();
         }
 
         public SQLiteDataReader ExecuteSqlReader(string sql)
         {
-            createConnection();
-            SQLiteCommand command = new SQLiteCommand(connection);
+            var conn = createConnection();
+            SQLiteCommand command = new SQLiteCommand(conn);
             command.CommandText = sql;
             var reader = command.ExecuteReader();
-            closeCurrentConnection();
+            conn.Close();
             return reader;
         }
     }
