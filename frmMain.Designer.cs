@@ -1,16 +1,17 @@
-﻿namespace MBServerMonitor
+﻿
+namespace MBServerMonitor
 {
     partial class frmMain
     {
         /// <summary>
-        /// 必需的设计器变量。
+        ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// 清理所有正在使用的资源。
+        ///  Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,167 +21,159 @@
             base.Dispose(disposing);
         }
 
-        #region Windows 窗体设计器生成的代码
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// 设计器支持所需的方法 - 不要修改
-        /// 使用代码编辑器修改此方法的内容。
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_module = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_map = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_mapType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_players = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_dedicated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_haspassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.cmbGameTypeList = new System.Windows.Forms.ComboBox();
-            this.lsvServerInfomation = new MBServerMonitor.DoubleBufferListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbGameServerNumber = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col_name,
+            this.col_module,
+            this.col_map,
+            this.col_mapType,
+            this.col_players,
+            this.col_dedicated,
+            this.col_haspassword});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(794, 382);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.VirtualMode = true;
+            this.dataGridView1.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dataGridView1_CellValueNeeded);
+            this.dataGridView1.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dataGridView1_CellValuePushed);
+            // 
+            // col_name
+            // 
+            this.col_name.HeaderText = "Name";
+            this.col_name.Name = "col_name";
+            this.col_name.Width = 68;
+            // 
+            // col_module
+            // 
+            this.col_module.HeaderText = "Module";
+            this.col_module.Name = "col_module";
+            this.col_module.Width = 78;
+            // 
+            // col_map
+            // 
+            this.col_map.HeaderText = "Map";
+            this.col_map.Name = "col_map";
+            this.col_map.Width = 60;
+            // 
+            // col_mapType
+            // 
+            this.col_mapType.HeaderText = "MapType";
+            this.col_mapType.Name = "col_mapType";
+            this.col_mapType.Width = 88;
+            // 
+            // col_players
+            // 
+            this.col_players.HeaderText = "Players";
+            this.col_players.Name = "col_players";
+            this.col_players.Width = 74;
+            // 
+            // col_dedicated
+            // 
+            this.col_dedicated.HeaderText = "Dedicated";
+            this.col_dedicated.Name = "col_dedicated";
+            this.col_dedicated.Width = 92;
+            // 
+            // col_haspassword
+            // 
+            this.col_haspassword.HeaderText = "HasPassword";
+            this.col_haspassword.Name = "col_haspassword";
+            this.col_haspassword.Width = 111;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnRefresh);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 391);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(794, 56);
+            this.panel1.TabIndex = 1;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(258, 10);
+            this.btnRefresh.Location = new System.Drawing.Point(661, 10);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(124, 37);
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // cmbGameTypeList
-            // 
-            this.cmbGameTypeList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGameTypeList.FormattingEnabled = true;
-            this.cmbGameTypeList.Items.AddRange(new object[] {
-            "Mount&Blade Warband",
-            "Mount&Blade With Fire and Sword"});
-            this.cmbGameTypeList.Location = new System.Drawing.Point(12, 12);
-            this.cmbGameTypeList.Name = "cmbGameTypeList";
-            this.cmbGameTypeList.Size = new System.Drawing.Size(240, 20);
-            this.cmbGameTypeList.TabIndex = 1;
-            this.cmbGameTypeList.SelectedIndexChanged += new System.EventHandler(this.cmbGameTypeList_SelectedIndexChanged);
-            // 
-            // lsvServerInfomation
-            // 
-            this.lsvServerInfomation.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
-            this.lsvServerInfomation.FullRowSelect = true;
-            this.lsvServerInfomation.GridLines = true;
-            this.lsvServerInfomation.Location = new System.Drawing.Point(12, 39);
-            this.lsvServerInfomation.Name = "lsvServerInfomation";
-            this.lsvServerInfomation.Size = new System.Drawing.Size(867, 451);
-            this.lsvServerInfomation.TabIndex = 2;
-            this.lsvServerInfomation.UseCompatibleStateImageBehavior = false;
-            this.lsvServerInfomation.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Server Name";
-            this.columnHeader1.Width = 167;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Module";
-            this.columnHeader2.Width = 123;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Map";
-            this.columnHeader3.Width = 130;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Map Type";
-            this.columnHeader4.Width = 64;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Player";
-            this.columnHeader5.Width = 136;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "IsDedicated";
-            this.columnHeader6.Width = 142;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "HasPassword";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.lbGameServerNumber});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 503);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(891, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(138, 17);
-            this.toolStripStatusLabel1.Text = "Game Server Number:";
-            // 
-            // lbGameServerNumber
-            // 
-            this.lbGameServerNumber.Name = "lbGameServerNumber";
-            this.lbGameServerNumber.Size = new System.Drawing.Size(68, 17);
-            this.lbGameServerNumber.Text = "{!}Number";
-            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 525);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.lsvServerInfomation);
-            this.Controls.Add(this.cmbGameTypeList);
-            this.Controls.Add(this.btnRefresh);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mount&Blade Server Monitor";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.Text = "Main";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_module;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_map;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_mapType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_players;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_dedicated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_haspassword;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.ComboBox cmbGameTypeList;
-        private DoubleBufferListView lsvServerInfomation;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel lbGameServerNumber;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

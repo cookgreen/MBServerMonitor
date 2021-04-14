@@ -3,77 +3,83 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace MBServerMonitor
 {
     public partial class frmMain : Form
     {
-        private Thread mainThread;
-        private Stack<Session> sessions;
+        private List<ServerInfo> serverInfos;
 
         public frmMain()
         {
             InitializeComponent();
-            sessions = new Stack<Session>();
-            cmbGameTypeList.SelectedIndex = 0;
-
-
-            mainThread = new Thread(() =>
-            {
-                while (true)
-                {
-                    lbGameServerNumber.Text = lsvServerInfomation.Items.Count.ToString();
-                }
-            });
-            mainThread.Start();
         }
 
-        private void cmbGameTypeList_SelectedIndexChanged(object sender, EventArgs e)
+        private void dataGridView1_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
         {
-            if (sessions.Count > 0)
+            if (e.RowIndex == this.dataGridView1.RowCount - 1) return;
+
+            var si = serverInfos[e.RowIndex];
+
+            switch (dataGridView1.Columns[e.ColumnIndex].Name)
             {
-                sessions.Pop().EndSession();
+                case "col_name":
+                    e.Value = si.Name;
+                    break;
+                case "col_module":
+                    e.Value = si.Module;
+                    break;
+                case "col_map":
+                    e.Value = si.Map;
+                    break;
+                case "col_mapType":
+                    e.Value = si.MapType;
+                    break;
+                case "col_players":
+                    e.Value = si.ActivePlayers + "/" + si.MaxPlayers;
+                    break;
+                case "col_dedicated":
+                    e.Value = si.Dedicated;
+                    break;
+                case "col_hasPassword":
+                    e.Value = si.HasPassword;
+                    break;
             }
-            Session newSession = new Session(ref lsvServerInfomation);
-            newSession.StartFetch(cmbGameTypeList.SelectedIndex);
-            sessions.Push(newSession);
-            btnRefresh.Text = "Cancel";
+        }
+
+        private void dataGridView1_CellValuePushed(object sender, DataGridViewCellValueEventArgs e)
+        {
+
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            btnRefresh.Enabled = false;
+            frmDownloadingForm downloadingForm = new frmDownloadingForm();
+            if(downloadingForm.ShowDialog()== DialogResult.OK)
+            {
+                serverInfos = downloadingForm.ServerInfos;
+                dataGridView1.DataSource = serverInfos;
+                dataGridView1.Refresh();
+                btnRefresh.Enabled = true;
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            if (btnRefresh.Text == "Cancel")
+            btnRefresh.Enabled = false;
+            frmDownloadingForm downloadingForm = new frmDownloadingForm();
+            if (downloadingForm.ShowDialog() == DialogResult.OK)
             {
-                if (sessions.Count > 0)
-                {
-                    sessions.Pop().EndSession();
-                }
-                btnRefresh.Text = "Refresh";
+                serverInfos = downloadingForm.ServerInfos;
+                dataGridView1.DataSource = serverInfos;
+                dataGridView1.Refresh();
+                btnRefresh.Enabled = true;
             }
-            else if (btnRefresh.Text == "Refresh")
-            {
-                Session newSession = new Session(ref lsvServerInfomation);
-                newSession.StartFetch(cmbGameTypeList.SelectedIndex);
-                sessions.Push(newSession);
-            }
-        }
-
-        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            mainThread.Abort();
-            for (int i = 0; i < sessions.Count; i++)
-            {
-                sessions.ElementAt(i).EndSession();
-            }
-            Application.ExitThread();
         }
     }
 }
