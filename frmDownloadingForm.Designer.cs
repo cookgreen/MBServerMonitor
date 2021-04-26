@@ -46,18 +46,18 @@ namespace MBServerMonitor
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(489, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 17);
+            this.label1.Size = new System.Drawing.Size(33, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "0/100";
+            this.label1.Text = "--/--";
             // 
             // lbStageName
             // 
             this.lbStageName.AutoSize = true;
             this.lbStageName.Location = new System.Drawing.Point(12, 19);
             this.lbStageName.Name = "lbStageName";
-            this.lbStageName.Size = new System.Drawing.Size(84, 17);
+            this.lbStageName.Size = new System.Drawing.Size(62, 17);
             this.lbStageName.TabIndex = 2;
-            this.lbStageName.Text = "{StageName}";
+            this.lbStageName.Text = "Unknown";
             // 
             // frmDownloadingForm
             // 

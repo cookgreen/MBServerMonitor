@@ -26,7 +26,7 @@ namespace MBServerMonitor
             get { return downloadTask.ServerInfos; }
         }
 
-        public frmDownloadingForm()
+        public frmDownloadingForm(int gameType)
         {
             InitializeComponent();
 
@@ -37,7 +37,7 @@ namespace MBServerMonitor
             downloadTask = new DownloadServerInfoTask();
             downloadTask.DownloadFinished += DownloadTask_DownloadFinished;
             downloadTask.DownloadProgressReport += DownloadTask_DownloadProgressReport;
-            downloadTask.Start();
+            downloadTask.Start(gameType);
 
             lbStageName.Text = null;
         }

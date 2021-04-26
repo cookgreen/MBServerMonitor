@@ -42,8 +42,12 @@ namespace MBServerMonitor
         {
             serverInfoDAL.CleanDB();
 
+            DateTime lastActiveProgressReportTime = DateTime.MinValue;
+            TimeSpan lastTimeSpan;
+            TimeSpan span;
+
             DownloadProgressReport?.Invoke("Fetching Server Metadata...", 1, 1);
-            var servers = serverInfoFetcher.GetGameServersList(0);
+            var servers = serverInfoFetcher.GetGameServersList(int.Parse(e.Argument.ToString()));
 
             foreach (var server in servers)
             {
@@ -60,33 +64,33 @@ namespace MBServerMonitor
                 {
                     serverInfoFetchThreadSuccessPool.Add(thread);
                     DownloadProgressReport?.Invoke("Downloading Server Info...", serverInfoFetchThreadSuccessPool.Count, serverInfoFetchThreadPool.Count);
+                    lastActiveProgressReportTime = DateTime.Now;
                 };
                 thread.RunWorkerAsync();
                 serverInfoFetchThreadPool.Add(thread);
             }
 
             int tick = 0;
-            int lastSpan = 0;
 
             while ((serverInfoFetchThreadPool.Count != serverInfoFetchThreadSuccessPool.Count) && tick!=3)
             {
-                if (serverInfoFetchThreadPool.Count - serverInfoFetchThreadSuccessPool.Count <= 5)
+                if (lastActiveProgressReportTime != DateTime.MinValue)
                 {
-                    int span = serverInfoFetchThreadPool.Count - serverInfoFetchThreadSuccessPool.Count;
+                    lastTimeSpan = DateTime.Now - lastActiveProgressReportTime;
 
-                    if(span == lastSpan)
+                    if (lastTimeSpan.TotalSeconds > 1200)
                     {
                         tick++;
                     }
 
-                    lastSpan = span;
+                    span = lastTimeSpan;
                 }
             }
         }
 
-        public void Start()
+        public void Start(int gameType)
         {
-            worker.RunWorkerAsync();
+            worker.RunWorkerAsync(gameType);
         }
     }
 }

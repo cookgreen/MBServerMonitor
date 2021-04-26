@@ -17,6 +17,8 @@ namespace MBServerMonitor
         public frmMain()
         {
             InitializeComponent();
+            dataGridView1.AutoGenerateColumns = false;
+            cmbGameTypeList.SelectedIndex = 0;
         }
 
         private void dataGridView1_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
@@ -45,7 +47,7 @@ namespace MBServerMonitor
                 case "col_dedicated":
                     e.Value = si.Dedicated;
                     break;
-                case "col_hasPassword":
+                case "col_haspassword":
                     e.Value = si.HasPassword;
                     break;
             }
@@ -58,28 +60,19 @@ namespace MBServerMonitor
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            btnRefresh.Enabled = false;
-            frmDownloadingForm downloadingForm = new frmDownloadingForm();
-            if(downloadingForm.ShowDialog()== DialogResult.OK)
-            {
-                serverInfos = downloadingForm.ServerInfos;
-                dataGridView1.DataSource = serverInfos;
-                dataGridView1.Refresh();
-                btnRefresh.Enabled = true;
-            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             btnRefresh.Enabled = false;
-            frmDownloadingForm downloadingForm = new frmDownloadingForm();
+            frmDownloadingForm downloadingForm = new frmDownloadingForm(cmbGameTypeList.SelectedIndex);
             if (downloadingForm.ShowDialog() == DialogResult.OK)
             {
                 serverInfos = downloadingForm.ServerInfos;
                 dataGridView1.DataSource = serverInfos;
                 dataGridView1.Refresh();
-                btnRefresh.Enabled = true;
             }
+            btnRefresh.Enabled = true;
         }
     }
 }
