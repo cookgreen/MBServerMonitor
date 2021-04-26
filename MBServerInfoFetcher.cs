@@ -13,9 +13,9 @@ using System.Xml;
 
 namespace MBServerMonitor
 {
-    public class MBServerInfoGetor
+    public class MBServerInfoFetcher
     {
-        public MBServerInfoGetor()
+        public MBServerInfoFetcher()
         {
 
         }

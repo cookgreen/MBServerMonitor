@@ -11,7 +11,7 @@ namespace MBServerMonitor
     public class DownloadServerInfoTask
     {
         private BackgroundWorker worker;
-        private MBServerInfoGetor serverInfoFetcher;
+        private MBServerInfoFetcher serverInfoFetcher;
         private ServerInfoDAL serverInfoDAL;
         private List<BackgroundWorker> serverInfoFetchThreadPool;
         private List<BackgroundWorker> serverInfoFetchThreadSuccessPool;
@@ -26,7 +26,7 @@ namespace MBServerMonitor
             worker = new BackgroundWorker();
             worker.DoWork += Worker_DoWork;
             worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
-            serverInfoFetcher = new MBServerInfoGetor();
+            serverInfoFetcher = new MBServerInfoFetcher();
             serverInfoDAL = new ServerInfoDAL();
             serverInfoFetchThreadPool = new List<BackgroundWorker>();
             serverInfoFetchThreadSuccessPool = new List<BackgroundWorker>();
