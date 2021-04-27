@@ -29,7 +29,7 @@ namespace MBServerMonitor
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new MBServerMonitor.CustomDataGridView();
             this.col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_module = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_map = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -201,7 +201,7 @@ namespace MBServerMonitor
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private CustomDataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_module;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_map;
