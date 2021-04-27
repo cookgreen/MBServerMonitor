@@ -27,10 +27,19 @@ namespace MBServerMonitor
         public void ExecuteSql(string sql)
         {
             var conn = createConnection();
-            SQLiteCommand command = new SQLiteCommand(conn);
-            command.CommandText = sql;
-            command.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand(conn);
+                command.CommandText = sql;
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public SQLiteDataReader ExecuteSqlReader(string sql)

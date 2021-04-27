@@ -67,6 +67,7 @@ namespace MBServerMonitor
             this.Controls.Add(this.lbStageName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmDownloadingForm";

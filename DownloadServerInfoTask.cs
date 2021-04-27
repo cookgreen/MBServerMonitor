@@ -41,6 +41,7 @@ namespace MBServerMonitor
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             serverInfoDAL.CleanDB();
+            serverInfoDAL.ResetSequence();
 
             DateTime lastActiveProgressReportTime = DateTime.MinValue;
             TimeSpan lastTimeSpan;

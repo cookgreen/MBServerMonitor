@@ -20,8 +20,18 @@ namespace MBServerMonitor
             dbHelper.ExecuteSql("delete from ServerInfo");
         }
 
+        public void ResetSequence()
+        {
+            dbHelper.ExecuteSql("update sqlite_sequence set seq=0 where name='ServerInfo'");
+        }
+
         public void AddServerInfo(ServerInfo serverInfo)
         {
+            serverInfo.Name    = Utility.FilterSpecialChars(serverInfo.Name);
+            serverInfo.Module  = Utility.FilterSpecialChars(serverInfo.Module);
+            serverInfo.Map     = Utility.FilterSpecialChars(serverInfo.Map);
+            serverInfo.MapType = Utility.FilterSpecialChars(serverInfo.MapType);
+
             dbHelper.ExecuteSql("insert into ServerInfo (Address, Name, Module, Map, MapType, ActivePlayer, MaxPlayer, Dedicated, HasPassword) values('" + serverInfo.Address + "','" + serverInfo.Name + "','" + serverInfo.Module + "','" + serverInfo.Map + "','" + serverInfo.MapType + "','" + serverInfo.ActivePlayers + "','" + serverInfo.MaxPlayers + "','" + serverInfo.Dedicated + "','" + serverInfo.HasPassword + "')");
         }
 
