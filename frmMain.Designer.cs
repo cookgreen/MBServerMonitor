@@ -29,6 +29,7 @@ namespace MBServerMonitor
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.dataGridView1 = new MBServerMonitor.CustomDataGridView();
             this.col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_module = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -186,6 +187,7 @@ namespace MBServerMonitor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MBserverMonitor";

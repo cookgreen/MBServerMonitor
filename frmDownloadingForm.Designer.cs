@@ -72,6 +72,7 @@ namespace MBServerMonitor
             this.MinimizeBox = false;
             this.Name = "frmDownloadingForm";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Downloading";
             this.ResumeLayout(false);
