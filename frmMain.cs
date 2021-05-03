@@ -12,6 +12,7 @@ namespace MBServerMonitor
 {
     public partial class frmMain : Form
     {
+        private int sortDirection = 0;
         private List<ServerInfo> serverInfos;
 
         public frmMain()
@@ -73,6 +74,20 @@ namespace MBServerMonitor
                 dataGridView1.Refresh();
             }
             btnRefresh.Enabled = true;
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridView1.Sort(dataGridView1.Columns[e.ColumnIndex], (ListSortDirection)sortDirection);
+
+            if (sortDirection == 0)
+            {
+                sortDirection = 1;
+            }
+            else if (sortDirection == 1)
+            {
+                sortDirection = 0;
+            }
         }
     }
 }

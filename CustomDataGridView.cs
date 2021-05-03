@@ -14,6 +14,7 @@ namespace MBServerMonitor
         private Brush whiteBrush;
         private const string NO_DATA_DISPLAY_STR = "(No Data Display)";
         private Font fontNoDataDisplay;
+        private int border = 2;
 
         public CustomDataGridView() : base()
         {
@@ -35,15 +36,17 @@ namespace MBServerMonitor
             if (num == 0)
             {
                 //Draw one line - No data display.
+                int width = Width - border;
                 int height = RowTemplate.Height;
 
+                int left = (Width - width) / 2;
                 int top = height;
 
-                g.FillRectangle(whiteBrush, new Rectangle(0, top, Width, height));
+                g.FillRectangle(whiteBrush, new Rectangle(left, top, width, height));
 
                 SizeF strSize = g.MeasureString(NO_DATA_DISPLAY_STR, Font);
                 float strTop = (height - strSize.Height) / 2;
-                float strLeft = (Width - strSize.Width) / 2;
+                float strLeft = (width - strSize.Width) / 2;
 
                 PointF pointF = new PointF(strLeft, top + strTop);
 
